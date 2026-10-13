@@ -1,19 +1,25 @@
-export const Caption: React.FC<{ text: string }> = ({ text }) => (
+import { theme } from "../theme";
+
+export type CaptionProps = { text: string };
+
+export const Caption: React.FC<CaptionProps> = ({ text }) => (
   <div
     style={{
       position: "absolute",
-      left: 370,
-      right: 370,
-      bottom: 70,
-      padding: "20px 36px",
-      borderRadius: 40,
-      backgroundColor: "#ffffff",
-      color: "#174d79",
-      fontFamily: "Arial, sans-serif",
-      fontSize: 42,
-      fontWeight: 800,
+      left: "50%",
+      transform: "translateX(-50%)",
+      bottom: theme.layout.captionBottom,
+      padding: `${theme.size.captionPadY}px ${theme.size.captionPadX}px`,
+      minWidth: theme.size.captionMinWidth,
+      maxWidth: theme.size.captionMaxWidth,
+      borderRadius: theme.radius.caption,
+      backgroundColor: theme.colors.captionBackground,
+      color: theme.colors.ink,
+      fontFamily: theme.type.family,
+      fontSize: theme.type.caption,
+      fontWeight: theme.type.weight,
       textAlign: "center",
-      boxShadow: "0 12px 0 #b9e5ef",
+      boxShadow: theme.shadow.caption,
     }}
   >
     {text}

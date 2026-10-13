@@ -11,7 +11,8 @@ Pipeline local para producir videos educativos de ciencia para niños en españo
 
 ## Estructura
 
-- `src/components/`: piezas visuales reutilizables: `Planet`, `Arrow`, `Title`, `Caption`.
+- `src/theme.ts`: paleta, tipografía Fredoka, escala, radios, sombras y medidas comunes.
+- `src/components/`: piezas visuales reutilizables: `Earth`, `Moon`, `ForceArrow`, `OrbitPath`, `StarField`, `Title`, `Caption`.
 - `src/scenes/`: escenas parametrizables, actualmente `TidesScene`.
 - `src/compositions/`: videos completos registrados en `src/Root.tsx`.
 - `content/episodes/<slug>/script.json`: guion y metadatos; `audio/` y `timings/` para futuros resultados de voz y alineamiento.
@@ -26,6 +27,13 @@ Pipeline local para producir videos educativos de ciencia para niños en españo
 - Parametrizar escenas con props; registrar cada composición en `src/Root.tsx`.
 - Guardar audios pesados en `content/episodes/<slug>/audio/`; están excluidos de Git. Los timings JSON pueden versionarse.
 - Coqui XTTS v2 y WhisperX son integraciones futuras; no están conectadas en la prueba inicial.
+
+## Reglas de contenido
+
+- La precisión científica tiene prioridad sobre la estética. Las representaciones esquemáticas deben preservar las relaciones causales y geométricas relevantes. La órbita de 8 segundos es una velocidad de animación, no el periodo lunar real.
+- Usar escala infantil: títulos de al menos 96 px, subtítulos de al menos 48 px, formas legibles y contraste alto.
+- Todo color, tipografía, tamaño, radio y sombra visual debe venir de `src/theme.ts`. No usar fuentes del sistema ni valores visuales hardcodeados en componentes.
+- Toda escena nueva debe reutilizar los componentes existentes de `src/components/` y ampliar esa biblioteca cuando haga falta una pieza nueva.
 
 ## Comandos
 
