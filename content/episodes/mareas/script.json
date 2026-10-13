@@ -1,0 +1,75 @@
+{
+  "title": "¿Por qué hay mareas?",
+  "language": "es",
+  "scenes": [
+    {
+      "id": "pregunta",
+      "type": "TitleScene",
+      "narration": "¿Por qué el mar sube y baja en la costa? Vamos a mirar hacia la Luna.",
+      "props": { "heading": "¿Por qué hay mareas?", "subheading": "La Luna y el océano" },
+      "durationSec": 5
+    },
+    {
+      "id": "orbita",
+      "type": "OrbitScene",
+      "narration": "La Luna gira alrededor de la Tierra. Aquí aceleramos su viaje para poder verlo.",
+      "props": { "label": "La Luna nos acompaña", "orbitSeconds": 8 },
+      "durationSec": 6,
+      "cues": [{ "atWord": "gira", "action": "startOrbit" }]
+    },
+    {
+      "id": "gravedad",
+      "type": "ForceArrowScene",
+      "narration": "La gravedad de la Luna atrae la Tierra y el agua. Ese tirón cambia con la distancia.",
+      "props": { "label": "La gravedad tira" },
+      "cues": [{ "atWord": "atrae", "action": "showArrow" }]
+    },
+    {
+      "id": "marea-cercana",
+      "type": "TideScene",
+      "narration": "Cerca de la Luna, el agua siente un tirón mayor y forma un abultamiento.",
+      "props": { "label": "El lado cercano", "showArrow": true },
+      "durationSec": 5.5,
+      "cues": [{ "atWord": "Cerca", "action": "showTide" }]
+    },
+    {
+      "id": "marea-lejana",
+      "type": "TideScene",
+      "narration": "Lejos de la Luna, el agua siente un tirón menor que la Tierra. Aparece otro abultamiento.",
+      "props": { "label": "El lado opuesto", "showArrow": false },
+      "durationSec": 5.5
+    },
+    {
+      "id": "giro-terrestre",
+      "type": "KeyPointsScene",
+      "narration": "La Tierra gira bajo esos abultamientos. En muchos lugares, eso produce dos mareas altas y dos bajas al día.",
+      "props": {
+        "heading": "La Tierra gira",
+        "points": ["Pasamos por zonas de agua alta", "Luego pasamos por zonas de agua baja", "El Sol también influye"]
+      },
+      "durationSec": 7,
+      "cues": [{ "atWord": "gira", "action": "reveal" }]
+    },
+    {
+      "id": "alta-y-baja",
+      "type": "ComparisonScene",
+      "narration": "Marea alta significa que el nivel del mar sube. Marea baja significa que desciende. La hora exacta depende del lugar.",
+      "props": {
+        "heading": "Marea alta y baja",
+        "left": { "title": "Marea alta", "body": "El agua alcanza un nivel más alto." },
+        "right": { "title": "Marea baja", "body": "El agua alcanza un nivel más bajo." }
+      },
+      "durationSec": 7
+    },
+    {
+      "id": "resumen",
+      "type": "RecapScene",
+      "narration": "Recuerda: la gravedad lunar estira el océano en dos lados. La Tierra gira y el nivel del mar cambia. El Sol también ayuda.",
+      "props": {
+        "heading": "¿Qué aprendimos?",
+        "points": ["La Luna influye en el océano", "Hay dos abultamientos opuestos", "La Tierra gira bajo ellos"]
+      },
+      "durationSec": 7
+    }
+  ]
+}

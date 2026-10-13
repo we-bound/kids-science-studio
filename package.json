@@ -11,15 +11,22 @@
     "dev": "remotion studio src/index.ts",
     "build": "remotion bundle src/index.ts",
     "lint": "eslint src && tsc --noEmit",
-    "render:test": "remotion render src/index.ts TidesTest out/test.mp4 --codec h264",
-    "render": "bash scripts/render.sh"
+    "render:test": "remotion render src/index.ts Episode out/test.mp4 --codec h264",
+    "render": "bash scripts/render.sh",
+    "validate": "node --import tsx scripts/validate.ts",
+    "render:episode": "node --import tsx scripts/render-episode.ts",
+    "stills": "node --import tsx scripts/stills.ts",
+    "docs:catalog": "node --import tsx scripts/generate-catalog.ts",
+    "test": "node --import tsx --test tests/*.test.ts"
   },
   "dependencies": {
     "@remotion/cli": "4.0.535",
     "@remotion/google-fonts": "4.0.535",
+    "@remotion/transitions": "4.0.535",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "remotion": "4.0.535"
+    "remotion": "4.0.535",
+    "zod": "4.5.4"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.535",
@@ -27,6 +34,7 @@
     "@types/web": "0.0.166",
     "eslint": "9.39.5",
     "prettier": "3.8.1",
+    "tsx": "4.20.6",
     "typescript": "5.9.3"
   }
 }

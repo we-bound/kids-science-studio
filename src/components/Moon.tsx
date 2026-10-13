@@ -3,12 +3,11 @@ import { theme } from "../theme";
 export type MoonProps = {
   centerX: number;
   centerY: number;
-  inFront: boolean;
 };
 
-export const Moon: React.FC<MoonProps> = ({ centerX, centerY, inFront }) => {
+export const Moon: React.FC<MoonProps> = ({ centerX, centerY }) => {
   const { colors, size, shadow, vector } = theme;
-  const diameter = size.moon * (inFront ? size.moonFrontScale : size.moonBackScale);
+  const diameter = size.moon;
 
   return (
     <svg
@@ -30,7 +29,7 @@ export const Moon: React.FC<MoonProps> = ({ centerX, centerY, inFront }) => {
           <stop offset="100%" stopColor={colors.moonDark} />
         </radialGradient>
       </defs>
-      <circle cx={vector.moonCenter} cy={vector.moonCenter} r={vector.moonRadius} fill="url(#moon-fill)" />
+      <circle cx={vector.moonCenter} cy={vector.moonCenter} r={vector.moonRadius} fill="url(#moon-fill)" stroke={colors.moonLight} strokeWidth={size.earthOutline} />
       {vector.moonCraters.map((crater) => (
         <circle key={`${crater.x}-${crater.y}`} cx={crater.x} cy={crater.y} r={crater.radius} fill={colors.moonCrater} fillOpacity={crater.opacity} />
       ))}

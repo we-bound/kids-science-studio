@@ -1,6 +1,6 @@
 # Kids Science Studio
 
-Videos educativos de ciencia para niños, hechos con motion graphics en Remotion y TypeScript. La composición inicial muestra a la Tierra y la Luna orbitando en 10 segundos.
+Videos educativos de ciencia para niños, hechos con motion graphics en Remotion y TypeScript. Cada video se define por completo en `content/episodes/<slug>/script.json` con escenas del [catálogo](docs/scene-catalog.md).
 
 ## Preparación (WSL2 Ubuntu 24.04)
 
@@ -27,9 +27,13 @@ Si `nvm use` indica que `~/.npmrc` contiene `prefix`, usa `nvm use --delete-pref
 ```bash
 npm run dev
 npm run lint
-npm run render:test
+npm run validate -- mareas
+npm run render:episode -- mareas
+npm run stills -- mareas
 ```
 
-El render de prueba queda en `out/test.mp4` (1920 × 1080, 30 fps, 10 s). Para otra composición: `npm run render -- TidesTest out/otro.mp4`.
+El episodio de muestra queda en `out/mareas.mp4` (1920 × 1080, 30 fps). Los PNG de revisión quedan en `out/mareas/stills/`. `npm run render:test` genera `out/test.mp4` con el mismo guion.
+
+Para crear otro episodio, copiá la estructura de `content/episodes/mareas/script.json`, elegí escenas documentadas en el catálogo y validá el JSON. No se agrega código por episodio. Tras ampliar el registro de escenas, ejecutá `npm run docs:catalog`.
 
 Las carpetas `content/episodes/<slug>/audio/` y `timings/` están preparadas para conectar Coqui XTTS v2 y WhisperX más adelante.

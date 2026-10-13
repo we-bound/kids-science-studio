@@ -1,8 +1,12 @@
 import { theme } from "../theme";
+import { interpolate, useCurrentFrame } from "remotion";
 
-export type CaptionProps = { text: string };
+export type CaptionProps = { text?: string; children?: React.ReactNode };
 
-export const Caption: React.FC<CaptionProps> = ({ text }) => (
+export const Caption: React.FC<CaptionProps> = ({ text, children }) => {
+  const frame = useCurrentFrame();
+  const opacity = interpolate(frame, [0, theme.timing.fadeFrames], [0, 1], { extrapolateRight: "clamp" });
+  return (
   <div
     style={{
       position: "absolute",
@@ -20,8 +24,10 @@ export const Caption: React.FC<CaptionProps> = ({ text }) => (
       fontWeight: theme.type.weight,
       textAlign: "center",
       boxShadow: theme.shadow.caption,
+      opacity,
     }}
   >
-    {text}
+    {children ?? text}
   </div>
-);
+  );
+};
