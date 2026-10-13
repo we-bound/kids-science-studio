@@ -1,0 +1,14 @@
+node_modules/
+out/
+.cache/
+.env
+.env.*
+!.env.example
+content/episodes/**/audio/*.wav
+content/episodes/**/audio/*.mp3
+content/episodes/**/audio/*.flac
+content/episodes/**/audio/*.ogg
+content/episodes/**/audio/*.m4a
+content/episodes/**/audio/*.aac
+content/episodes/**/audio/*.aiff
+content/episodes/**/audio/*.opus

@@ -1,0 +1,29 @@
+{
+  "name": "kids-science-studio",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "description": "Videos educativos de ciencia para niños hechos con Remotion",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "build": "remotion bundle src/index.ts",
+    "lint": "eslint src && tsc --noEmit",
+    "render:test": "remotion render src/index.ts TidesTest out/test.mp4 --codec h264",
+    "render": "bash scripts/render.sh"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.535",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.535"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.535",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  }
+}
